@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <title>Obvious by RetroMocha</title>
+  </head>
+
+  <body>
+    <header>
+      <div class="inner">
+        <h1>Obvious</h1>
+        <h2>Isn't it Obvious?</h2>
+        <a href="https://github.com/RetroMocha/obvious" class="button"><small>View project on</small>GitHub</a>
+      </div>
+    </header>
+
+    <div id="content-wrapper">
+      <div class="inner clearfix">
+        <section id="main-content">
+          <h1>Welcome To Obvious</h1>
+
+<p>Obvious is an architecture framework. The goal is to provide architectural structure for a highly testable system that is obvious to understand and where both the front end UI and back end infrastructure are treated as implementation details independent of the app logic itself. </p>
+
+<h2>Design Principles</h2>
+
+<ul>
+<li>Obvious Functionality</li>
+<li>Framework Independence </li>
+<li>Extreme Testability</li>
+<li>Maintenance Minded</li>
+</ul><h3>Obvious Functionality</h3>
+
+<p>When looking at the app directory, it should be obvious what kinds of things the application does. This architecture highly values the "glance factor" of the application structure as well as being obvious in where to find things while working with the project.</p>
+
+<h3>Framework Independence</h3>
+
+<p>Your application does not need to be a web app, api app, desktop app, or console app. It also doesn't need to be a MySQL, MongoDB, or SQLServer app. Your app is just a set of data structures and functionality related to those data structures. How your app delivers your app or stores data are implementation details.  </p>
+
+<p>Implementation details can and should change based on your implementation needs, your app logic shouldn't have to change when your implementation requirements do. </p>
+
+<h3>Extreme Testability</h3>
+
+<p>This is a TDD biased structure. Each layer and pattern is designed with testing in mind. More importantly, we designed this architecture so that testing would be easier for developers, which should lead to more testing and better software quality. </p>
+
+<h3>Maintenance Minded</h3>
+
+<p>When given the choice between short term productivity or long term maintenance, we believe that the right decision is long term maintenance. Many decisions have been made that are counterintuitive from a short term productivity standpoint, but allow for much easier maintenance. Obviousness, framework independence, and testability all work together to make the day to day maintenance more enjoyable. </p>
+
+<h2>Structure</h2>
+
+<p>There are three well defined folders of each project, which define the three core divisions of a given project - app, delivery, and external. </p>
+
+<h3>App</h3>
+
+<p>App is where the core entities, actions, and data contracts of your application are housed. </p>
+
+<h4>Entities</h4>
+
+<p>Entities represent data in your system. They are fairly dumb data structures that mostly just contain data and do validation on the data they contain. </p>
+
+<h4>Actions</h4>
+
+<p>Actions are the use cases of the system. </p>
+
+<h4>Contracts</h4>
+
+<p>Contracts define the data transport structures and perform format validation on the hashes.</p>
+
+<h3>Delivery</h3>
+
+<p>Delivery is where you implement the delivery mechanism of your application itself.  This means in simplest terms the UI, but it also means creating concrete versions of the external objects, such as data gateways, and also calling the actions of the app itself. </p>
+
+<h3>External</h3>
+
+<p>External is where data transport between your app and various external infrastructure lives. This could be datbases, queues, or caching layers connected to various data systems such as Redis, MongoDB, MySQL, the filesystem etc.</p>
+
+<h2>Data Transport</h2>
+
+<p>The fundamental data structure of data transport is going to be a hash. This is for both incoming and outgoing data from the action layer.  The reason for this is simply to keep the app logic from creeping outside of the app into the external layer or the ui layer. If we send dumb data between layers, it would be impossible to call Entity methods from a view as the Action objects return hashes, and not entity objects. </p>
+        </section>
+
+        <aside id="sidebar">
+          <a href="https://github.com/RetroMocha/obvious/zipball/master" class="button">
+            <small>Download</small>
+            .zip file
+          </a>
+          <a href="https://github.com/RetroMocha/obvious/tarball/master" class="button">
+            <small>Download</small>
+            .tar.gz file
+          </a>
+
+          <p class="repo-owner"><a href="https://github.com/RetroMocha/obvious"></a> is maintained by <a href="https://github.com/RetroMocha">RetroMocha</a>.</p>
+
+          <p>This page was generated by <a href="pages.github.com">GitHub Pages</a> using the Architect theme by <a href="http://twitter.com/jasonlong">Jason Long</a>.</p>
+        </aside>
+      </div>
+    </div>
+
+  
+  </body>
+</html>

@@ -39,7 +39,9 @@
 <li>Framework Independence </li>
 <li>Extreme Testability</li>
 <li>Maintenance Minded</li>
-</ul><h3>Obvious Functionality</h3>
+</ul>
+
+<h3>Obvious Functionality</h3>
 
 <p>When looking at the app directory, it should be obvious what kinds of things the application does. This architecture highly values the "glance factor" of the application structure as well as being obvious in where to find things while working with the project.</p>
 
@@ -103,11 +105,13 @@
 
 <h2>Examples</h2>
 
-<p>Coming soon</p>
+<p><strong><a href="http://github.com/RetroMocha/obvious_status">Obvious Status</a></strong> - A twitter clone status update app. It is designed as an example app, so you can follow the commits to get an idea of how an app would progress step-by-step.</p>
 
 <h2>Project Generator</h2>
 
 <p>You can start using obvious by installing the ruby gem. Just 'gem install obvious'. To run it, call 'obvious generate' in a folder containing a "descriptors" folder with obvious yml descriptor files inside. The obvious generator will look at all of the action descriptors and will generate stub classes and pending tests for your project.</p>
+
+<p><i>NOTE:</i> descriptors are awesome for getting a new app folder structure going, but are basically ignored after your app is created. At some point in the future, the Obvious app generator will get a bit smarter and descriptors could be useful in an ongoing design process, but for now they make bootstrapping easier and that's it.</p>
 
 <h3>Example Descriptor File</h3>
 

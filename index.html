@@ -61,6 +61,8 @@
 
 <p>There are three well defined folders of each project, which define the three core divisions of a given project - app, delivery, and external. </p>
 
+<img src="images/obvious-architecture.png">
+
 <h3>App</h3>
 
 <p>App is where the core entities, actions, and data contracts of your application are housed. </p>
@@ -85,9 +87,32 @@
 
 <p>External is where data transport between your app and various external infrastructure lives. This could be datbases, queues, or caching layers connected to various data systems such as Redis, MongoDB, MySQL, the filesystem etc.</p>
 
+<h4>Jacks</h4>
+
+<p>Jacks are the classes that inherit from Contracts. A contract method is designed to be called before and after a jack method is called so that validation on the input and output hashes can be done. Jacks don't define a particular persistance mechanism, but instead act more as a routing mechaism to various plugs.</p>
+
+<h4>Plugs</h4>
+
+<p>Plugs are the objects that talk to external systems such as queues, databases, caching, 3rd party API's and so on. A single Jack can have multiple plugs that plug into it. For example, you might have a BlogPostJack that has a BlogPostJackForMySQL and a BlogPostJackForMongo and a BlogPostJackForFS. In that scenario you could swap out MySQL for Mongo or the Filesystem at any time.</p>
+
+
 <h2>Data Transport</h2>
 
 <p>The fundamental data structure of data transport is going to be a hash. This is for both incoming and outgoing data from the action layer.  The reason for this is simply to keep the app logic from creeping outside of the app into the external layer or the ui layer. If we send dumb data between layers, it would be impossible to call Entity methods from a view as the Action objects return hashes, and not entity objects. </p>
+
+
+<h2>Examples</h2>
+
+<p>Coming soon</p>
+
+<h2>Project Generator</h2>
+
+<p>You can start using obvious by installing the ruby gem. Just 'gem install obvious'. To run it, call 'obvious generate' in a folder containing a "descriptors" folder with obvious yml descriptor files inside. The obvious generator will look at all of the action descriptors and will generate stub classes and pending tests for your project.</p>
+
+<h3>Example Descriptor File</h3>
+
+<p>An <a href="https://gist.github.com/4367147">example obvious descriptor</a> file is available as a gist. It's a yaml file. It is designed to be for generate pseudocode and related tests. the c: elements are comments and the requires: elements determine what we think that method might need for that comment.</p>
+
         </section>
 
         <aside id="sidebar">

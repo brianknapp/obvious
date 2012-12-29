@@ -61,51 +61,84 @@
 
 <h2>Structure</h2>
 
-<p>There are three well defined folders of each project, which define the three core divisions of a given project - app, delivery, and external. </p>
+<p>There are three well defined folders of each Obvious project, which define the three core divisions of a given project - app, delivery, and 
+external. In the default Obvious structure, they exist as actual directories, but they are designed to be decoupled, so there is no reason
+you couldn't put the app, external, or delivery mechanisms into separate gems if that made sense for your project, but for demonstration
+purposes we assume them to all live in the same directory.</p>
 
 <img src="images/obvious-architecture.png">
 
 <h3>App</h3>
 
-<p>App is where the core entities, actions, and data contracts of your application are housed. </p>
+<p>App is where the entities, actions, and data contracts of your application are housed. </p>
 
 <h4>Entities</h4>
 
-<p>Entities represent data in your system. They are fairly dumb data structures that mostly just contain data and do validation on the data they contain. </p>
+<p>Entities represent data in your system. They are fairly simple data structures that mostly just contain data and do validation on 
+the data they contain. Simple entities usually only need a shape method to make writing contracts easier, a populate method of populating
+the object, and a to_hash method for using the object elsewhere. </p>
 
 <h4>Actions</h4>
 
-<p>Actions are the use cases of the system. </p>
+<p>Actions are the use cases of the system. They are where most of the business logic of the system happens. They are single action objects
+that take in Jacks as constructor arguments to enable pluggable data sources.  </p>
 
 <h4>Contracts</h4>
 
-<p>Contracts define the data transport structures and perform format validation on the hashes.</p>
+<p>Contracts define the data transport structures and perform format validation on the hashes. Data flows through the contracts to 
+the jacks and plugs and back. Because the contracts validate both the input and the output, invalid data structures raise an error and
+actions will fail. This ensures a standard mechanism for pluggable persistence.</p>
 
 <h3>Delivery</h3>
 
-<p>Delivery is where you implement the delivery mechanism of your application itself.  This means in simplest terms the UI, but it also means creating concrete versions of the external objects, such as data gateways, and also calling the actions of the app itself. </p>
+<p>Delivery is where you implement the delivery mechanism of your application itself. Delivery is where your app is integrated with external
+data sources and shown to the user.  This means in simplest terms the UI, but it also 
+means creating concrete versions of the external objects, such as data jacks, and also calling the actions of the app itself. </p>
+
+<p>If your system contains multiple delivery mechanisms - multiple web apps, api's, command line apps, etc. each project would live in 
+a subdirectory of the delivery directory. In the example Obvious app below there is a sinatra app in delivery/web/, a sinatra json api 
+app in delivery/api/, a purple_shoes desktop app in delivery/desktop/ and a commander cli app in delivery/cli/. You also could make your app
+and delivery directories into gems and have each delivery mechanism be its own directory.</p> 
 
 <h3>External</h3>
 
-<p>External is where data transport between your app and various external infrastructure lives. This could be datbases, queues, or caching layers connected to various data systems such as Redis, MongoDB, MySQL, the filesystem etc.</p>
+<p>External is where data transport between your app and various external infrastructure lives. This could be datbases, queues, or 
+caching layers connected to various data systems such as Redis, MongoDB, MySQL, the filesystem etc.</p>
 
 <h4>Jacks</h4>
 
-<p>Jacks are the classes that inherit from Contracts. A contract method is designed to be called before and after a jack method is called so that validation on the input and output hashes can be done. Jacks don't define a particular persistance mechanism, but instead act more as a routing mechaism to various plugs.</p>
+<p>Jacks are the classes that inherit from Contracts. A contract is designed to wrap a 
+jack method so that validation on the input and output hashes can be done. Jacks don't define a particular
+ persistance mechanism, but instead act more as a routing mechaism to various plugs.</p>
 
 <h4>Plugs</h4>
 
-<p>Plugs are the objects that talk to external systems such as queues, databases, caching, 3rd party API's and so on. A single Jack can have multiple plugs that plug into it. For example, you might have a BlogPostJack that has a BlogPostJackForMySQL and a BlogPostJackForMongo and a BlogPostJackForFS. In that scenario you could swap out MySQL for Mongo or the Filesystem at any time.</p>
+<p>Plugs are the objects that talk to external systems such as queues, databases, caching, 3rd party API's and so on. A single Jack 
+can have multiple plugs that plug into it. For example, you might have a BlogPostJack that has a BlogPostPlugForMySQL and a 
+BlogPostPlugForMongo and a BlogPostPlugForFS. In that scenario you could swap out MySQL for Mongo or the Filesystem at any time.</p>
 
 
-<h2>Data Transport</h2>
+<h2>Hashes as Data Transport</h2>
 
-<p>The fundamental data structure of data transport is going to be a hash. This is for both incoming and outgoing data from the action layer.  The reason for this is simply to keep the app logic from creeping outside of the app into the external layer or the ui layer. If we send dumb data between layers, it would be impossible to call Entity methods from a view as the Action objects return hashes, and not entity objects. </p>
+<p>The fundamental data structure of data transport between layers is a hash. This is for both incoming and outgoing data from the 
+each layer.  There are many benefits to this approach. The biggest benefit is that each layer stays decoupled from the other layers
+and that hashes act as messages passed between the layers.</p>
 
+<p>Other benefits include:</p>
+
+<p>Your delivery mechanism is only handed hashes, so you have less likelhood
+of logic in your controllers or views (unless you do a bad thing). Your Jacks are only handed hashes, so contracts are able to validate
+their structure to ensure that Jacks and Plugs won't break your system. Also, Plugs only handing back hashes means your application isn't
+tied to the data structures of a particular ORM or persistence library. Lastly, entities are populated with hashes, so it is easy to
+validate returned from the Jacks using the Entity.populate method.</p>
 
 <h2>Examples</h2>
 
-<p><strong><a href="http://github.com/RetroMocha/obvious_status">Obvious Status</a></strong> - A twitter clone status update app. It is designed as an example app, so you can follow the commits to get an idea of how an app would progress step-by-step.</p>
+<p><strong><a href="http://github.com/RetroMocha/obvious_status">Obvious Status</a></strong> - A twitter clone status update app. It 
+is designed as an example app, so you can follow the commits to get an idea of how an app would progress step-by-step.</p>
+
+<p>Currently Obvious Status can be run as a web app, JSON api, command line app, or a desktop app using jruby. Data can be stored with
+JSON files, MySQL, MongoDB, or even the JSON api. You can pick from any of those options without changing your app folder code.</p> 
 
 <h2>Project Generator</h2>
 
@@ -136,6 +169,18 @@
       </div>
     </div>
 
-  
+ <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-26715536-4']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script> 
   </body>
 </html>

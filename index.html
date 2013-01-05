@@ -30,15 +30,19 @@
         <section id="main-content">
           <h1>Welcome To Obvious</h1>
 
-<p>Obvious is an architecture framework. The goal is to provide architectural structure for a highly testable system that is obvious to understand and where both the front end UI and back end infrastructure are treated as implementation details independent of the app logic itself. </p>
+<p>Obvious is a clean architecture framework. The goal is to make it easy to write software using TDD and to expose the 
+intent of the software just by looking at the file structure. By using Obvious you also gain the benefit of having a 
+system that treats the external data sources and delivery mechanisms as implementation details that can be easily 
+replaced as needed.</p>
 
 <center>
-<iframe width="480" height="315" src="http://www.youtube.com/embed/nAAtHqpO8yE" frameborder="0" allowfullscreen></iframe>
+<iframe width="560" height="315" src="http://www.youtube.com/embed/hxDDjVRUP1I" frameborder="0" allowfullscreen></iframe>
 </center>
 <br>
 <br>
 
-<p>Like Obvious? <a href="http://news.ycombinator.com/item?id=4989327">Upvote on Hacker News!</a></p>
+<p>Like Obvious? <a href="http://news.ycombinator.com/item?id=4989327">Discuss on Hacker News!</a></p>
+
 <h2>Design Principles</h2>
 
 <ul>
@@ -156,6 +160,33 @@ JSON files, MySQL, MongoDB, or even the JSON api. You can pick from any of those
 <h3>Example Descriptor File</h3>
 
 <p>An <a href="https://gist.github.com/4367147">example obvious descriptor</a> file is available as a gist. It's a yaml file. It is designed to be for generate pseudocode and related tests. the c: elements are comments and the requires: elements determine what we think that method might need for that comment.</p>
+
+<h2>Obvious Language Choice</h2>
+
+<p>Obvious is written in Ruby, but there is nothing particularly language specific about the Obvious concepts and structure. The structure could be used effectively
+in any object oriented language - PHP, Java, C#, Python, Scala, Lua, Javascript, ActionScript, Ruby, C++, or Smalltalk it doesn't matter. </p>
+
+<p>Currently, what Obvious provides to Ruby projects is a project generator and the Contract base class, the Hash.has_shape? method, and ContractInputError and ContractOutputError classes.</p> 
+
+<p>If you are interested in porting Obvious to another language, contact <a href="http://twitter.com/programminggeek">Brian on Twitter</a>.</p>
+
+
+<h2>Credit</h2>
+
+<h3>The Obvious Team:</h3>
+
+<p><a href="http://twitter.com/programminggeek">Brian Knapp</a>, <a href="https://twitter.com/shawnbaden">Shawn Baden</a>, and <a href="https://twitter.com/bryanthompson">Bryan Thompson</a></p>
+
+<h3>Inspiration:</h3>
+
+<p><a href="https://twitter.com/unclebobmartin">Uncle Bob Martin</a> - The <a href="confreaks.com/videos/759-rubymidwest2011-keynote-architecture-the-lost-years">keynote at Ruby Midwest 2011</a> outlined
+the structure and ideas that became the Obvious Architecture. Uncle Bob's blog posts on <a href="http://blog.8thlight.com/uncle-bob/2012/08/13/the-clean-architecture.html">The Clean Architecture</a> and 
+<a href="http://blog.8thlight.com/uncle-bob/2011/09/30/Screaming-Architecture.html">Screaming Architecture</a> were also useful in
+furthering our understaanding of Clean Architecture as defined by Uncle Bob.</p>
+
+<p><a href="https://twitter.com/TotherAlistair">Alistair Cockburn</a> - The <a href="http://alistair.cockburn.us/Hexagonal+architecture">Hexagonal Architecture</a> 
+ports and adapters concept directly influenced the idea of jacks and plugs in Obvious. In fact, the biggest reason they aren't named ports and adapters in Obvious
+is to avoid architecture confusion.</p>
 
         </section>
 

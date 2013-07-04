@@ -142,6 +142,7 @@ a.button small {
   display: block;
   font-size: 11px;
 }
+
 header a.button {
   position: absolute;
   right: 0;
@@ -155,6 +156,24 @@ aside a.button {
   background: transparent url(../images/download-button.png) 0 0 no-repeat;
   margin-bottom: 20px;
   font-size: 21px;
+}
+
+aside a.button.watch {
+  width: 200px;
+  padding: 10px;
+  /*display: block;*/
+  background: transparent url(../images/watch-button.png) 0 0 no-repeat;
+  /*margin-bottom: 20px;*/
+  font-size: 14px;
+}
+
+i.watch-icon {
+  position: relative;
+  float: left;
+  height: 100%;
+  padding-top: 5px;
+  font-size: 34pt;
+  padding-right: 10px;
 }
 
 code, pre {

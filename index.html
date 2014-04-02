@@ -1,38 +1,134 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset='utf-8'>
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
+<html lang="en">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>Obvious by Retro Mocha</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
+    <!-- Le styles -->
+    <!--<link href="/css/bootstrap.css" rel="stylesheet">-->
+    <link href="http://bootswatch.com/cosmo/bootstrap.min.css" rel="stylesheet">
+
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,100' rel='stylesheet' type='text/css'>
+    
+    <style type="text/css">
+      body {
+        padding-top: 20px;
+        padding-bottom: 40px;
+        font-family: "Roboto";
+      }
+
+      h1, h2, h3, h4, h5, h6 {
+        font-family: "Roboto";
+      }
+
+
+      .company_name {
+        font-family: "Roboto";
+        font-weight: 100;
+        font-size: 38px;
+        color: black;
+        text-decoration: none !important;
+      }
+
+      .logo {
+        float: left;
+        position: relative;
+        top: -19px;
+        left: -10px;
+      }
+
+      .nav-pills>li.active>a, .nav-pills>li.active>a:hover, .nav-pills>li.active>a:focus {
+        background-color: #33B5E5
+      }
+
+      a {
+        color: #33B5E5;
+      }
+
+      /* Custom container */
+      .container-narrow {
+        margin: 0 auto;
+        max-width: 900px;
+      }
+      .container-narrow > hr {
+        margin: 50px 0;
+      }
+
+      /* Main marketing message and sign up button */
+      .jumbotron {
+        margin: 60px 0;
+        text-align: center;
+        background-color: #fafafa;
+        width: 700px;
+        margin-left: auto;
+        margin-right: auto;
+        padding-left: 80px;
+        padding-right: 80px;
+      }
+      .jumbotron h1 {
+        font-size: 72px;
+        line-height: 1;
+        font-weight: 100;
+        font-family: "Roboto"; 
+      }
+      .jumbotron .btn {
+        font-size: 21px;
+        padding: 14px 24px;
+      }
+
+      /* Supporting marketing content */
+      .marketing {
+        margin: 60px 0;
+      }
+      .marketing p + h4 {
+        margin-top: 28px;
+      }
+
+      p {
+        font-size: 17px;
+        line-height: 28px;
+        margin-bottom: 20px;
+        font-weight: 300;
+      }
+    </style>
+    <link href="/css/bootstrap-responsive.css" rel="stylesheet">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+      <script src="../assets/js/html5shiv.js"></script>
     <![endif]-->
-<link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
-<link href="http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
 
-    <title>Obvious by RetroMocha</title>
+    <!-- Fav and touch icons -->
+    <!--<link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://twitter.github.io/bootstrap/assets/ico/apple-touch-icon-144-precomposed.png">-->
+    <!--<link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://twitter.github.io/bootstrap/assets/ico/apple-touch-icon-114-precomposed.png">-->
+      <!--<link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://twitter.github.io/bootstrap/assets/ico/apple-touch-icon-72-precomposed.png">-->
+                    <!--<link rel="apple-touch-icon-precomposed" href="http://twitter.github.io/bootstrap/assets/ico/apple-touch-icon-57-precomposed.png">-->
+                                   <!--<link rel="shortcut icon" href="http://twitter.github.io/bootstrap/assets/ico/favicon.png">-->
   </head>
 
   <body>
-    <header>
-      <div class="inner">
-        <h1>Obvious</h1>
-        <h2>Isn't it Obvious?</h2>
-        <a href="https://github.com/RetroMocha/obvious" class="button"><small>View project on</small>GitHub</a>
-      </div>
-    </header>
 
+    <div class="container-narrow">
+
+ <div class="masthead">
+        <ul class="nav nav-pills pull-right">
+          <li><a href="https://github.com/RetroMocha/obvious" class="button">View project on GitHub</a></li>
+        </ul>
+        <a class="company_name" href="/">
+          <h3 class="company_name">Obvious</h3>
+        </a>
+      </div>
+
+      <hr>
     <div id="content-wrapper">
       <div class="inner clearfix">
         <section id="main-content">
           <h1>Welcome To Obvious</h1>
 
-<p>Obvious is a clean architecture framework. The goal is to make it easy to write software using TDD and to expose the 
+<p>Obvious is a clean architecture. The goal is to make it easy to write software using TDD and to expose the 
 intent of the software just by looking at the file structure. By using Obvious you also gain the benefit of having a 
 system that treats the external data sources and delivery mechanisms as implementation details that can be easily 
 replaced as needed.</p>
@@ -131,15 +227,15 @@ BlogPostPlugForMongo and a BlogPostPlugForFS. In that scenario you could swap ou
 
 <h2>Hashes as Data Transport</h2>
 
-<p>The fundamental data structure of data transport between layers is a hash. This is for both incoming and outgoing data from the 
+<p>The fundamental data structure of data transport between layers is a hash, ideally an immutable hash or struct. This is for both incoming and outgoing data from the 
 each layer.  There are many benefits to this approach. The biggest benefit is that each layer stays decoupled from the other layers
-and that hashes act as messages passed between the layers.</p>
+and that hashes act as messages passed between the layers. Immutable hashes or structs are preferable to mutable ones so that the messages stay in their original state.</p>
 
 <p>Other benefits include:</p>
 
-<p>Your delivery mechanism is only handed hashes, so you have less likelhood
-of logic in your controllers or views (unless you do a bad thing). Your Jacks are only handed hashes, so contracts are able to validate
-their structure to ensure that Jacks and Plugs won't break your system. Also, Plugs only handing back hashes means your application isn't
+<p>Your delivery mechanism is only handed data, so you have less likelhood
+of logic in your controllers or views (unless you do a bad thing). Your Jacks are only handed data, so contracts are able to validate
+their structure to ensure that Jacks and Plugs won't break your system. Also, Plugs only handing back data means your application isn't
 tied to the data structures of a particular ORM or persistence library. Lastly, entities are populated with hashes, so it is easy to
 validate returned from the Jacks using the Entity.populate method.</p>
 
@@ -151,13 +247,9 @@ is designed as an example app, so you can follow the commits to get an idea of h
 <p>Currently Obvious Status can be run as a web app, JSON api, command line app, or a desktop app using jruby. Data can be stored with
 JSON files, MySQL, MongoDB, or even the JSON api. You can pick from any of those options without changing your app folder code.</p> 
 
-<h2>Further Learning</h2>
-
-<p><strong><a href="http://obviouscasts.com/">Obviouscasts</a></strong> - Free screencasts on all things Obvious including live coding examples.
-
 <h2>Project Generator</h2>
 
-<p>You can start using obvious by installing the ruby gem. Just 'gem install obvious'. To run it, call 'obvious generate' in a folder containing a "descriptors" folder with obvious yml descriptor files inside. The obvious generator will look at all of the action descriptors and will generate stub classes and pending tests for your project.</p>
+<p>You can start using Obvious in Ruby by installing the ruby gem. Just 'gem install obvious'. To run it, call 'obvious generate' in a folder containing a "descriptors" folder with obvious yml descriptor files inside. The obvious generator will look at all of the action descriptors and will generate stub classes and pending tests for your project.</p>
 
 <p><i>NOTE:</i> descriptors are awesome for getting a new app folder structure going, but are basically ignored after your app is created. At some point in the future, the Obvious app generator will get a bit smarter and descriptors could be useful in an ongoing design process, but for now they make bootstrapping easier and that's it.</p>
 
@@ -170,16 +262,16 @@ JSON files, MySQL, MongoDB, or even the JSON api. You can pick from any of those
 <p>Obvious is written in Ruby, but there is nothing particularly language specific about the Obvious concepts and structure. The structure could be used effectively
 in any object oriented language - PHP, Java, C#, Python, Scala, Lua, Javascript, ActionScript, Ruby, C++, or Smalltalk it doesn't matter. </p>
 
-<p>Currently, what Obvious provides to Ruby projects is a project generator and the Contract base class, the Hash.has_shape? method, and ContractInputError and ContractOutputError classes.</p> 
+<p>For a myriad of reasons, Ruby is not really the best choice to use for Obvious, but we have done our best to make it an enjoyable experience.</p>
 
-<p>If you are interested in porting Obvious to another language, contact <a href="http://twitter.com/programminggeek">Brian on Twitter</a>.</p>
+<p>If you are interested in porting Obvious to another language, contact <a href="http://twitter.com/_brianknapp">Brian on Twitter</a>.</p>
 
 
 <h2>Credit</h2>
 
 <h3>The Obvious Team:</h3>
 
-<p><a href="http://twitter.com/programminggeek">Brian Knapp</a>, <a href="https://twitter.com/shawnbaden">Shawn Baden</a>, and <a href="https://twitter.com/bryanthompson">Bryan Thompson</a></p>
+<p><a href="http://twitter.com/_brianknapp">Brian Knapp</a>, <a href="https://twitter.com/shawnbaden">Shawn Baden</a>, and <a href="https://twitter.com/bryanthompson">Bryan Thompson</a></p>
 
 <h3>Inspiration:</h3>
 
@@ -192,31 +284,13 @@ furthering our understaanding of Clean Architecture as defined by Uncle Bob.</p>
 ports and adapters concept directly influenced the idea of jacks and plugs in Obvious. In fact, the biggest reason they aren't named ports and adapters in Obvious
 is to avoid architecture confusion.</p>
 
+<p></p>
+
         </section>
 
-        <aside id="sidebar">
-          <a href="https://github.com/RetroMocha/obvious/zipball/master" class="button">
-            <small>Download</small>
-            .zip file
-          </a>
-          <a href="https://github.com/RetroMocha/obvious/tarball/master" class="button">
-            <small>Download</small>
-            .tar.gz file
-          </a>
-
-          <p class="repo-owner"><a href="https://github.com/RetroMocha/obvious"></a> is maintained by <a href="https://github.com/RetroMocha">Retro Mocha</a>.</p>
-<p>This page was generated by <a href="pages.github.com">GitHub Pages</a> using the Architect theme by <a href="http://twitter.com/jasonlong">Jason Long</a>.</p>
-
-<a href="http://obviouscasts.com" class="button watch">
-<i class="icon-youtube-play watch-icon"></i> 
-<br>
-            <small>Watch Screencasts!</small>
-            Obviouscasts.com
-          </a>
-
+             <p class="repo-owner"><a href="https://github.com/RetroMocha/obvious">Obvious</a> is maintained by <a href="https://github.com/RetroMocha">Retro Mocha</a>.</p>
 
  
-</aside>
       </div>
     </div>
 

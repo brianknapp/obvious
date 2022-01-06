@@ -1,0 +1,8 @@
+title: Obvious
+description: Isn't it Obvious?
+google_analytics: 
+show_downloads: true
+theme: jekyll-theme-cayman
+
+gems:
+  - jekyll-mentions

@@ -103,11 +103,11 @@ Obvious is written in Ruby, but there is nothing particularly language specific 
 
 ### The Obvious Team
 
-Brian Knapp, Shawn Baden, and Bryan Thompson
+[Brian Knapp](https://twitter.com/_brianknapp) and [Shawn Baden](https://twitter.com/shawnbaden)
 
 
 ### Inspiration
 
 [Uncle Bob Martin](https://twitter.com/unclebobmartin) - The [keynote at Ruby Midwest 2011](https://www.youtube.com/watch?v=WpkDN78P884) outlined the structure and ideas that became the Obvious Architecture.
 
-[Alistair Cockburn](https://twitter.com/TotherAlistair) - The [Hexagonal Architecture](http://alistair.cockburn.us/Hexagonal+architecture) ports and adapters concept directly influenced the idea of jacks and plugs in Obvious. In fact, the biggest reason they aren't named ports and adapters in Obvious is to avoid architecture confusion.
+[Alistair Cockburn](https://twitter.com/TotherAlistair) - The Hexagonal Architecture ports and adapters concept directly influenced the idea of jacks and plugs in Obvious. In fact, the biggest reason they aren't named ports and adapters in Obvious is to avoid architecture confusion.

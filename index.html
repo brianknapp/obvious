@@ -12,7 +12,7 @@
     <link href="http://bootswatch.com/cosmo/bootstrap.min.css" rel="stylesheet">
 
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,100' rel='stylesheet' type='text/css'>
-    
+
     <style type="text/css">
       body {
         padding-top: 20px;
@@ -72,7 +72,7 @@
         font-size: 72px;
         line-height: 1;
         font-weight: 100;
-        font-family: "Roboto"; 
+        font-family: "Roboto";
       }
       .jumbotron .btn {
         font-size: 21px;
@@ -114,9 +114,7 @@
     <div class="container-narrow">
 
  <div class="masthead">
-        <ul class="nav nav-pills pull-right">
-          <li><a href="https://github.com/RetroMocha/obvious" class="button">View project on GitHub</a></li>
-        </ul>
+
         <a class="company_name" href="/">
           <h3 class="company_name">Obvious</h3>
         </a>
@@ -128,13 +126,13 @@
         <section id="main-content">
           <h1>Welcome To Obvious</h1>
 
-<p>Obvious is a clean architecture. The goal is to make it easy to write software using TDD and to expose the 
-intent of the software just by looking at the file structure. By using Obvious you also gain the benefit of having a 
-system that treats the external data sources and delivery mechanisms as implementation details that can be easily 
+<p>Obvious is a clean architecture. The goal is to make it easy to write software using TDD and to expose the
+intent of the software just by looking at the file structure. By using Obvious you also gain the benefit of having a
+system that treats the external data sources and delivery mechanisms as implementation details that can be easily
 replaced as needed.</p>
 
 <center>
-<iframe width="560" height="315" src="http://www.youtube.com/embed/hxDDjVRUP1I" frameborder="0" allowfullscreen></iframe>
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/hxDDjVRUP1I" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </center>
 <br>
 <br>
@@ -168,7 +166,7 @@ replaced as needed.</p>
 
 <h2>Structure</h2>
 
-<p>There are three well defined folders of each Obvious project, which define the three core divisions of a given project - app, delivery, and 
+<p>There are three well defined folders of each Obvious project, which define the three core divisions of a given project - app, delivery, and
 external. In the default Obvious structure, they exist as actual directories, but they are designed to be decoupled, so there is no reason
 you couldn't put the app, external, or delivery mechanisms into separate gems if that made sense for your project, but for demonstration
 purposes we assume them to all live in the same directory.</p>
@@ -181,7 +179,7 @@ purposes we assume them to all live in the same directory.</p>
 
 <h4>Entities</h4>
 
-<p>Entities represent data in your system. They are fairly simple data structures that mostly just contain data and do validation on 
+<p>Entities represent data in your system. They are fairly simple data structures that mostly just contain data and do validation on
 the data they contain. Simple entities usually only need a shape method to make writing contracts easier, a populate method of populating
 the object, and a to_hash method for using the object elsewhere. </p>
 
@@ -192,42 +190,42 @@ that take in Jacks as constructor arguments to enable pluggable data sources.  <
 
 <h4>Contracts</h4>
 
-<p>Contracts define the data transport structures and perform format validation on the hashes. Data flows through the contracts to 
+<p>Contracts define the data transport structures and perform format validation on the hashes. Data flows through the contracts to
 the jacks and plugs and back. Because the contracts validate both the input and the output, invalid data structures raise an error and
 actions will fail. This ensures a standard mechanism for pluggable persistence.</p>
 
 <h3>Delivery</h3>
 
 <p>Delivery is where you implement the delivery mechanism of your application itself. Delivery is where your app is integrated with external
-data sources and shown to the user.  This means in simplest terms the UI, but it also 
+data sources and shown to the user.  This means in simplest terms the UI, but it also
 means creating concrete versions of the external objects, such as data jacks, and also calling the actions of the app itself. </p>
 
-<p>If your system contains multiple delivery mechanisms - multiple web apps, api's, command line apps, etc. each project would live in 
-a subdirectory of the delivery directory. In the example Obvious app below there is a sinatra app in delivery/web/, a sinatra json api 
+<p>If your system contains multiple delivery mechanisms - multiple web apps, api's, command line apps, etc. each project would live in
+a subdirectory of the delivery directory. In the example Obvious app below there is a sinatra app in delivery/web/, a sinatra json api
 app in delivery/api/, a purple_shoes desktop app in delivery/desktop/ and a commander cli app in delivery/cli/. You also could make your app
-and delivery directories into gems and have each delivery mechanism be its own directory.</p> 
+and delivery directories into gems and have each delivery mechanism be its own directory.</p>
 
 <h3>External</h3>
 
-<p>External is where data transport between your app and various external infrastructure lives. This could be datbases, queues, or 
+<p>External is where data transport between your app and various external infrastructure lives. This could be datbases, queues, or
 caching layers connected to various data systems such as Redis, MongoDB, MySQL, the filesystem etc.</p>
 
 <h4>Jacks</h4>
 
-<p>Jacks are the classes that inherit from Contracts. A contract is designed to wrap a 
+<p>Jacks are the classes that inherit from Contracts. A contract is designed to wrap a
 jack method so that validation on the input and output hashes can be done. Jacks don't define a particular
  persistance mechanism, but instead act more as a routing mechaism to various plugs.</p>
 
 <h4>Plugs</h4>
 
-<p>Plugs are the objects that talk to external systems such as queues, databases, caching, 3rd party API's and so on. A single Jack 
-can have multiple plugs that plug into it. For example, you might have a BlogPostJack that has a BlogPostPlugForMySQL and a 
+<p>Plugs are the objects that talk to external systems such as queues, databases, caching, 3rd party API's and so on. A single Jack
+can have multiple plugs that plug into it. For example, you might have a BlogPostJack that has a BlogPostPlugForMySQL and a
 BlogPostPlugForMongo and a BlogPostPlugForFS. In that scenario you could swap out MySQL for Mongo or the Filesystem at any time.</p>
 
 
 <h2>Hashes as Data Transport</h2>
 
-<p>The fundamental data structure of data transport between layers is a hash, ideally an immutable hash or struct. This is for both incoming and outgoing data from the 
+<p>The fundamental data structure of data transport between layers is a hash, ideally an immutable hash or struct. This is for both incoming and outgoing data from the
 each layer.  There are many benefits to this approach. The biggest benefit is that each layer stays decoupled from the other layers
 and that hashes act as messages passed between the layers. Immutable hashes or structs are preferable to mutable ones so that the messages stay in their original state.</p>
 
@@ -241,11 +239,11 @@ validate returned from the Jacks using the Entity.populate method.</p>
 
 <h2>Examples</h2>
 
-<p><strong><a href="http://github.com/RetroMocha/obvious_status">Obvious Status</a></strong> - A twitter clone status update app. It 
+<p><strong><a href="http://github.com/RetroMocha/obvious_status">Obvious Status</a></strong> - A twitter clone status update app. It
 is designed as an example app, so you can follow the commits to get an idea of how an app would progress step-by-step.</p>
 
 <p>Currently Obvious Status can be run as a web app, JSON api, command line app, or a desktop app using jruby. Data can be stored with
-JSON files, MySQL, MongoDB, or even the JSON api. You can pick from any of those options without changing your app folder code.</p> 
+JSON files, MySQL, MongoDB, or even the JSON api. You can pick from any of those options without changing your app folder code.</p>
 
 <h2>Project Generator</h2>
 
@@ -262,10 +260,6 @@ JSON files, MySQL, MongoDB, or even the JSON api. You can pick from any of those
 <p>Obvious is written in Ruby, but there is nothing particularly language specific about the Obvious concepts and structure. The structure could be used effectively
 in any object oriented language - PHP, Java, C#, Python, Scala, Lua, Javascript, ActionScript, Ruby, C++, or Smalltalk it doesn't matter. </p>
 
-<p>For a myriad of reasons, Ruby is not really the best choice to use for Obvious, but we have done our best to make it an enjoyable experience.</p>
-
-<p>If you are interested in porting Obvious to another language, contact <a href="http://twitter.com/_brianknapp">Brian on Twitter</a>.</p>
-
 
 <h2>Credit</h2>
 
@@ -276,11 +270,11 @@ in any object oriented language - PHP, Java, C#, Python, Scala, Lua, Javascript,
 <h3>Inspiration:</h3>
 
 <p><a href="https://twitter.com/unclebobmartin">Uncle Bob Martin</a> - The <a href="confreaks.com/videos/759-rubymidwest2011-keynote-architecture-the-lost-years">keynote at Ruby Midwest 2011</a> outlined
-the structure and ideas that became the Obvious Architecture. Uncle Bob's blog posts on <a href="http://blog.8thlight.com/uncle-bob/2012/08/13/the-clean-architecture.html">The Clean Architecture</a> and 
+the structure and ideas that became the Obvious Architecture. Uncle Bob's blog posts on <a href="http://blog.8thlight.com/uncle-bob/2012/08/13/the-clean-architecture.html">The Clean Architecture</a> and
 <a href="http://blog.8thlight.com/uncle-bob/2011/09/30/Screaming-Architecture.html">Screaming Architecture</a> were also useful in
 furthering our understaanding of Clean Architecture as defined by Uncle Bob.</p>
 
-<p><a href="https://twitter.com/TotherAlistair">Alistair Cockburn</a> - The <a href="http://alistair.cockburn.us/Hexagonal+architecture">Hexagonal Architecture</a> 
+<p><a href="https://twitter.com/TotherAlistair">Alistair Cockburn</a> - The <a href="http://alistair.cockburn.us/Hexagonal+architecture">Hexagonal Architecture</a>
 ports and adapters concept directly influenced the idea of jacks and plugs in Obvious. In fact, the biggest reason they aren't named ports and adapters in Obvious
 is to avoid architecture confusion.</p>
 
@@ -288,26 +282,7 @@ is to avoid architecture confusion.</p>
 
         </section>
 
-             <p class="repo-owner"><a href="https://github.com/RetroMocha/obvious">Obvious</a> is maintained by <a href="https://github.com/RetroMocha">Retro Mocha</a>.</p>
-
- 
       </div>
     </div>
-
-
-
- <script type="text/javascript">
-
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-26715536-4']);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-
-</script> 
   </body>
 </html>

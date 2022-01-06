@@ -1,7 +1,5 @@
 # Obvious
 
-## ...A Clean Architecture for Ruby
-
 Obvious is a clean architecture framework. The goal is to provide architectural structure for a highly testable system that is obvious to understand and where both the front end UI and back end infrastructure are treated as implementation details independent of the app logic itself.
 
 <center><iframe width="560" height="315" src="https://www.youtube.com/embed/hxDDjVRUP1I" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe></center>
